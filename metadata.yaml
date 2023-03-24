@@ -15,5 +15,5 @@
 homepage: "https://www.shinystat.com"
 documentation: "https://www.shinystat.com/en/guida.html"
 versions:
-  - sha: bfa4ce514926d2327e3c70b3981a79ebb8805d29
+  - sha: fa326d49889255bad957da5eaa93060398fb473a
     changeNotes: Initial Version
