@@ -105,11 +105,6 @@ ___TEMPLATE_PARAMETERS___
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
-/*
-  Ho commentato il codice relativo alla coda perchè non serve. Se l'evento da tracciare accade subito, si deve attivare nelle
-  impostazioni avanzate del tag la sequenza di tag, in modo che questo venga eseguito dopo il codice di tracciamento
-  shinystat analytics.
-*/
 const logToConsole = require('logToConsole');
 const copyFromWindow = require('copyFromWindow');
 
@@ -127,7 +122,6 @@ const onFailure = () => {
   data.gtmOnFailure();
 };
 
-//let queue = [];
 let ssxl;
 
 const send_event = function(fn, data) {
@@ -135,26 +129,14 @@ const send_event = function(fn, data) {
   onSuccess();
 };
 
-/*
-const process_queue = function() {
-  queue.forEach(function(element) {
-    send_event(ssxl, data);
-  });
-  queue = [];
-};
-*/
-
 const process_event = function() {
   ssxl = copyFromWindow('ssxl');
   if (typeof ssxl == 'function') {
     log('ssxl found.');
-    //if (queue.length > 0)
-      //process_queue();
     send_event(ssxl, data);
   } else {
     log('ssxl not found.');
     onFailure();
-    //queue.push(data);
   }
 };
 
